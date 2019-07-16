@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.5.1"
 
+gem 'devise'
+gem 'pundit'
 gem "active_type", ">= 0.3.2"
 gem "autoprefixer-rails", ">= 5.0.0.1"
 gem "bcrypt", "~> 3.1.7"
@@ -23,6 +25,8 @@ gem "rails", "~> 5.2.3"
 gem "sass-rails", "~> 5.0"
 gem "sidekiq", ">= 4.2.0"
 gem "turbolinks", "~> 5"
+gem 'haml-rails'
+gem 'faker'
 
 group :production, :staging do
   gem "postmark-rails"
@@ -40,7 +44,6 @@ group :development do
   gem "guard-minitest", require: false
   gem "letter_opener"
   gem "listen", ">= 3.0.5"
-  gem "overcommit", ">= 0.37.0", require: false
   gem "rack-livereload"
   gem "rubocop", ">= 0.70.0", require: false
   gem "rubocop-performance", require: false

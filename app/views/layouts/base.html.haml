@@ -1,0 +1,17 @@
+!!!
+%html
+  %body
+    - if flash[:notice].present?
+      / Equilibre <haml_loud> Rails.application.config.version </haml_loud> (<haml_loud> l(Rails.application.config.version_time) </haml_loud>)
+      = stylesheet_link_tag("application", media: "all", "data-turbolinks-track" => "reload") 
+      = javascript_include_async_tag("application", "data-turbolinks-track" => "reload")
+      = yield(:head)
+      %meta{charset: "utf-8"}
+      %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+      %meta{content: "Equilibre", name: "apple-mobile-web-app-title"}
+      = csrf_meta_tags
+      = csp_meta_tag
+      %title
+        = strip_tags(yield(:title)) + " – " if content_for?(:title)
+        Equilibre
+      = yield
